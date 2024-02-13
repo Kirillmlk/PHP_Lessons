@@ -2,7 +2,7 @@
 
 ?>
 
-<form action="server.php" method="post" enctype="application/x-www-form-urlencoded">
+<form action="server.php" method="post">
     <fieldset>
         <legend><h2>Заполните форму</h2></legend>
         <p>
