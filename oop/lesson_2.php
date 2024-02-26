@@ -123,3 +123,84 @@ trait TestTr
 {
     abstract function test(): void;
 }
+
+
+//Статический метод
+class Math
+{
+
+    public static int $count = 0;
+
+    public static function add(float $a, float $b)
+    {
+        return $a + $b;
+    }
+
+    public static function increment()
+    {
+        self::$count++;
+    }
+}
+
+$result = Math::add(2, 4);
+echo $result;
+echo "<br><hr>";
+Math::increment();
+
+class StringHelper
+{
+    public static function sluqify(string $string)
+    {
+        $string = preg_replace('/[^a-z0-9]+/i', '-', $string);
+        $string = trim($string, '-');
+        $string = strtolower($string);
+        return $string;
+    }
+}
+
+echo StringHelper::sluqify("Hello helPER");
+
+class Singleton
+{
+    private static $instance = null;
+
+    private function __construct()
+    {
+    }
+
+    public static function getInstance()
+    {
+        if (!self::$instance) {
+            self::$instance = new Singleton();
+        }
+
+        return self::$instance;
+    }
+
+    public function dosmth()
+    {
+        //
+    }
+}
+
+class Vihecle
+{
+    protected static $color = 'red';
+}
+
+class Car extends Vihecle
+{
+
+    public function getColor(): string
+    {
+        return parent::$color . ' car';
+    }
+}
+
+$car = new Car();
+echo $car->getColor();
+
+
+
+
+
